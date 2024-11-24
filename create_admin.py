@@ -7,8 +7,8 @@ admin_data = {
     "administrators": [
         {
             "username": "admin",
-            "password_hash": generate_password_hash("admin"),  # Change this password
-            "role": "superadmin"
+            "password_hash": generate_password_hash("admin"),  # Change this password!
+            "role": "admin"
         }
     ]
 }

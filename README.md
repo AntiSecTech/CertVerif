@@ -1,300 +1,155 @@
 # CertVerif - Certificate Verification System
 
-CertVerif is a web-based certificate verification system that allows organizations to manage and verify digital certificates. It provides both a public verification interface and an administrative dashboard for certificate management.
+![Python](https://img.shields.io/badge/python-3.7+-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Status](https://img.shields.io/badge/status-beta-orange)
+![Last Commit](https://img.shields.io/github/last-commit/AntiSecTech/CertVerif)
+![Languages](https://img.shields.io/github/languages/count/AntiSecTech/CertVerif)
+![Top Language](https://img.shields.io/github/languages/top/AntiSecTech/CertVerif)
 
-![CertVerif Logo](/static/img/logo.png)
+A robust certificate verification system built with Python, offering both public verification capabilities and administrative management of certificates.
 
-## Features
+## 🚀 Tech Stack
 
-### Public Interface
+- **Backend**: Python
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Data Storage**: JSON-based
+- **UI Framework**: Material Design
 
-- Certificate verification using certificate number and owner details
-- QR code support for quick certificate verification
-- Responsive design for mobile and desktop devices
-- Real-time verification status display
-- Detailed certificate information view
+## ✨ Key Features
 
-### Administrative Dashboard
+### 🌐 Public Interface
 
-- Secure admin login system
-- Dashboard with key metrics:
-  - Total certificates
-  - Valid certificates
-  - Expiring certificates (30-day warning)
-  - Expired certificates
-  - Certificate types
-- Certificate Management:
-  - Create new certificates
-  - Edit existing certificates
-  - Delete certificates
-  - View all certificates with status indicators
-- Administrator Management:
-  - Create new admin accounts
-  - Edit admin permissions
-  - Delete admin accounts
-  - Role-based access control (Admin/Super Admin)
+- Certificate verification via unique number
+- QR code integration for quick verification
+- Mobile-responsive design
+- Real-time status checking
+- Detailed certificate information display
 
-### Technical Features
+### 👑 Admin Dashboard
 
-- RESTful API for certificate verification
-- Secure session management
-- Password hashing using Werkzeug
-- JSON-based data storage
-- CSRF protection
-- Responsive UI using Material Design
-- Modular JavaScript architecture
+- Secure authentication system
+- Real-time statistics and metrics
+- Complete certificate lifecycle management
+- Administrator account control
+- Role-based access (Admin/User)
 
-## Installation
+## 🛠️ Installation
 
 ### Prerequisites
 
-- Python 3.7 or higher
-- pip (Python package manager)
+- Python 3.7+
+- pip package manager
 
-### Setup
-
-- Clone the repository:
+### Quick Start
 
 ```bash
-git clone https://github.com/yourusername/certverif.git
-cd certverif
-```
+# Clone repository
+git clone https://github.com/AntiSecTech/CertVerif.git
+cd CertVerif
 
-- Install required packages:
-
-```bash
+# Install dependencies
 pip install -r requirements.txt
-```
 
-- Create initial admin account:
-
-```bash
-python create_admin.py
-```
-
-- Create required directories:
-
-```bash
-mkdir -p data
-```
-
-### Configuration
-
-- Default admin credentials:
-
-  - Username: `admin`
-  - Password: `admin`
-
-**Important**: Change the default password after first login!
-
-- Application configuration:
-
-  - Port: 5000 (default)
-  - Session timeout: 1 hour
-  - Data storage: `data/` directory
-
-## Usage
-
-### Starting the Server
-
-1. Start the main application:
-
-```bash
+# Start server
 python app.py
 ```
 
-The server will start on `http://localhost:5000`
+## 🔑 Default Credentials
 
-### Accessing the System
+⚠️ **Important**: Please change these default credentials immediately after first login for security reasons!
 
-- Public verification: `http://localhost:5000`
-- Admin dashboard: `http://localhost:5000/admin/dashboard`
-- API endpoint: `http://localhost:5000/api/verify/<cert_number>`
+### 👑 Admin Access
 
-### API Usage
-
-Verify a certificate via API:
-
-```bash
-curl -H "Accept: application/json" http://localhost:5000/api/verify/<cert_number>
+```yaml
+ Username: admin
+ Password: admin
 ```
 
-## Project Structure
+### 👤 User Access
+
+```yaml
+Username: user
+Password: user
+```
+
+⚠️ **Important**: Please change these default credentials immediately after first login for security reasons!
+
+## 📁 Project Structure
 
 ```sh
-certverif/
-├── app.py # Main application server
-├── admin.py # Admin interface handler
-├── create_admin.py # Admin account creation utility
-├── data/
-│ ├── admin.json # Admin user data
-│ └── certificates.json# Certificate data
-├── static/
-│ ├── css/ # Stylesheets
-│ │ ├── admin.css
-│ │ ├── style.css
-│ │ └── verify.css
-│ └── js/ # JavaScript modules
-│ ├── admin-form.js
-│ ├── admins-list.js
-│ ├── certificate-form.js
-│ ├── certificates-list.js
-│ └── main.js
-├── templates/ # HTML templates
-│ ├── admin_dashboard.html
-│ ├── admin_form.html
-│ ├── admin_login.html
-│ ├── admins_list.html
-│ ├── certificate_form.html
-│ ├── certificates_list.html
-│ ├── index.html
-│ └── verify.html
-└── requirements.txt # Python dependencies
+CertVerif/
+├── app.py              # Main application
+├── create_admin.py     # Admin setup utility
+├── data/               # Data storage
+├── static/             # Assets
+│   ├── css/            # Stylesheets
+│   └── js/             # JavaScript modules
+└── templates/          # HTML templates
 ```
 
-## Security Features
+## 🔒 Security Features
 
-- Password hashing using Werkzeug
-- Secure session management
-- CSRF protection
-- HTTP-only cookies
-- XSS protection
+- Password hashing
+- Session management
 - Input validation
-- Role-based access control
+- Role-based authorization
 
-## Development
+## 📊 Data Structure
 
-### JavaScript Modules
-
-- `admin-form.js`: Admin user management
-- `admins-list.js`: Admin list display and operations
-- `certificate-form.js`: Certificate creation/editing
-- `certificates-list.js`: Certificate list display and operations
-- `main.js`: Public interface functionality
-
-### Styling
-
-- Material Design icons
-- Responsive grid system
-- Mobile-first approach
-- Custom CSS variables for theming
-
-## Data Structure
-
-### Certificate JSON Structure
+### Certificate Format
 
 ```json
 {
-    "certificates": [
-        {
-            "cert_number": "CV24-001-241121",
-            "cert_type": {
-                "type": "DC",
-                "year": 2024,
-                "number": 1,
-                "title": "Example Certificate",
-                "description": "API & Web Interface Testing Certificate"
-            },
-            "owner": "John Doe",
-            "birthdate": "1990-01-01",
-            "address": {
-                "street": "Main St",
-                "no": "123",
-                "city": "City",
-                "zip": "12345"
-            },
-            "contact": {
-                "phone": "+1234567890",
-                "email": "john.doe@example.com"
-            },
-            "expire_date": "2025-11-21",
-            "is_valid": true
-        }
-    ]
+  "cert_number": "CV24-001-241121",
+  "cert_type": {
+    "type": "DC",
+    "year": 2024,
+    "number": 1,
+    "title": "Example Certificate",
+    "description": "API & Web Interface Testing Certificate"
+    },
+    "owner": "John Doe",
+    "birthdate": "1990-01-01",
+    "address": {
+      "street": "Main St",
+      "no": "123",
+      "city": "City",
+      "zip": "12345"
+    },
+    "contact": {
+      "phone": "+1234567890",
+      "email": "john.doe@example.com"
+    },
+    "expire_date": "2025-11-21",
+    "is_valid": true
 }
 ```
 
-### Admin JSON Structure
+## 🔄 Current Status
 
-```json
-{
-    "administrators": [
-        {
-            "username": "admin",
-            "password_hash": "hashed_password",
-            "role": "superadmin"
-        }
-    ]
-}
-```
+- ✅ Basic certificate management
+- ✅ Admin interface
+- ✅ Public verification
+- ✅ QR code support
+- 🚧 Email notifications (Planned)
+- 🚧 Bulk operations (Planned)
 
-## Contributing
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create feature branch (`git checkout -b feature/Enhancement`)
+3. Commit changes (`git commit -m 'Add Enhancement'`)
+4. Push to branch (`git push origin feature/Enhancement`)
+5. Open Pull Request
 
-## License
+## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+MIT License - See [LICENSE](LICENSE) for details
 
-## Support
+## 👤 Author
 
-For support, please open an issue in the GitHub repository.
+[@AntiSecTech](https://github.com/AntiSecTech)
 
-## Roadmap
-
-- [ ] Add certificate template system
-- [ ] Implement email notifications
-- [ ] Add bulk certificate operations
-- [ ] Enhance API functionality
-- [ ] Add audit logging
-- [ ] Add export/import functionality
-- [ ] Implement certificate revocation system
-- [ ] Add multi-language support
-
-## Known Issues
-
-- No built-in backup system for JSON data files
-- Limited input validation on some fields
-
-## Production Deployment
-
-For production deployment, consider:
-
-1. Using a proper database instead of JSON files
-2. Implementing HTTPS
-3. Setting up proper logging
-4. Configuring backup systems
-5. Implementing rate limiting
-6. Setting up monitoring
-
-## Requirements
-
-See `requirements.txt` for Python package dependencies:
-
-- Flask
-- Flask-CORS
-- Werkzeug
-
-## Version History
-
-- 0.1.0
-  - Initial Release
-  - Basic certificate management
-  - Admin interface
-  - Public verification
-- 0.2.0
-
-## Author
-
-- [@AntiSecTech](https://github.com/antisectech)
-
-## Acknowledgments
-
-- [Material Design Icons](https://materialdesignicons.com/)
-- [Flask framework](https://flask.palletsprojects.com/)
-- [Werkzeug security](https://werkzeug.palletsprojects.com/)
-- [Python community](https://www.python.org/)
+---
+⭐ Star this repository if you find it helpful!
