@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Form - CertVerif Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <i class="material-icons">verified</i>
+                <span>CertVerif Admin</span>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="/admin/dashboard" style="text-decoration: none; color: inherit;">
+                        <i class="material-icons">dashboard</i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="/admin/certificates" style="text-decoration: none; color: inherit;">
+                        <i class="material-icons">card_membership</i>
+                        <span>Certificates</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/admins" style="text-decoration: none; color: inherit;">
+                        <i class="material-icons">group</i>
+                        <span>Admins</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/logout" style="text-decoration: none; color: inherit;">
+                        <i class="material-icons">logout</i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <main class="content">
+            <div class="content-header">
+                <h1>New Certificate</h1>
+            </div>
+            <div class="form-container">
+                <form id="certificateForm" method="POST" action="/admin/certificates/new">
+                    <!-- Certificate Type -->
+                    <div class="form-section">
+                        <h2>Certificate Type</h2>
+                        <div class="form-group">
+                            <label for="cert_type_type">Type</label>
+                            <input type="text" id="cert_type_type" name="cert_type[type]" placeholder="DC" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cert_type_title">Title</label>
+                            <input type="text" id="cert_type_title" name="cert_type[title]" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cert_type_description">Description</label>
+                            <textarea id="cert_type_description" name="cert_type[description]" rows="2"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Owner Information -->
+                    <div class="form-section">
+                        <h2>Owner Information</h2>
+                        <div class="form-group">
+                            <label for="owner">Full Name</label>
+                            <input type="text" id="owner" name="owner" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="birthdate">Date of Birth</label>
+                            <input type="date" id="birthdate" name="birthdate" required>
+                        </div>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="form-section">
+                        <h2>Address</h2>
+                        <div class="form-group">
+                            <label for="address_street">Street</label>
+                            <input type="text" id="address_street" name="address[street]" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address_no">Number</label>
+                            <input type="text" id="address_no" name="address[no]" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address_city">City</label>
+                            <input type="text" id="address_city" name="address[city]" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address_zip">ZIP Code</label>
+                            <input type="text" id="address_zip" name="address[zip]" required>
+                        </div>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="form-section">
+                        <h2>Contact Information</h2>
+                        <div class="form-group">
+                            <label for="contact_phone">Phone</label>
+                            <input type="tel" id="contact_phone" name="contact[phone]">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact_email">Email</label>
+                            <input type="email" id="contact_email" name="contact[email]" required>
+                        </div>
+                    </div>
+
+                    <!-- Expiry -->
+                    <div class="form-section">
+                        <h2>Certificate Validity</h2>
+                        <div class="form-group">
+                            <label for="expire_date">Expiry Date</label>
+                            <input type="date" id="expire_date" name="expire_date" required>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="location.href='/admin/certificates'">Cancel</button>
+                        <button type="submit" class="btn-primary">Create Certificate</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="/static/js/certificate-form.js"></script>
+    <script>
+        let certData = {};
+        try {
+            certData = JSON.parse('{{{CERTIFICATE_DATA}}}');
+        } catch (e) {
+            console.error('Error parsing certificate data:', e);
+        }
+        initializeCertificateForm(certData);
+    </script>
+</body>
+</html> 

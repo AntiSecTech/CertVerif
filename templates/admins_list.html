@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admins - CertVerif Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <i class="material-icons">verified</i>
+                <span>CertVerif Admin</span>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="/admin/dashboard" style="text-decoration: none; color: inherit;">
+                        <i class="material-icons">dashboard</i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/certificates" style="text-decoration: none; color: inherit;">
+                        <i class="material-icons">card_membership</i>
+                        <span>Certificates</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="/admin/admins" style="text-decoration: none; color: inherit;">
+                        <i class="material-icons">group</i>
+                        <span>Admins</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/logout" style="text-decoration: none; color: inherit;">
+                        <i class="material-icons">logout</i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <main class="content">
+            <div class="content-header">
+                <h1>Administrators</h1>
+                <div>
+                    <button class="action-btn" onclick="location.href='/admin/admins/new'">
+                        <i class="material-icons">person_add</i>
+                        New Admin
+                    </button>
+                </div>
+            </div>
+            <div class="admins-grid">
+                <!-- Admins will be loaded here via JavaScript -->
+            </div>
+        </main>
+    </div>
+    <script src="/static/js/admins-list.js"></script>
+    <script>
+        const adminsData = JSON.parse('{{ADMINS_DATA}}');
+        initializeAdminsGrid(adminsData);
+    </script>
+</body>
+</html>

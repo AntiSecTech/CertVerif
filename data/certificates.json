@@ -1,0 +1,52 @@
+{
+    "certificates": [
+        {
+            "cert_number": "CV24-001-241121",
+            "cert_type": {
+                "type": "DC",
+                "year": 2024,
+                "number": 1,
+                "title": "Example Certificate",
+                "description": "API & Web Interface Testing Certificate"
+            },
+            "owner": "John Doe",
+            "birthdate": "1990-01-01",
+            "address": {
+                "street": "Main St",
+                "no": "123",
+                "city": "City",
+                "zip": "12345"
+            },
+            "contact": {
+                "phone": "+1234567890",
+                "email": "john.doe@example.com"
+            },
+            "expire_date": "2025-11-21",
+            "is_valid": true
+        },
+        {
+            "cert_number": "CV24-002-241120",
+            "cert_type": {
+                "type": "DC",
+                "year": 2024,
+                "number": 2,
+                "title": "Test",
+                "description": "Test Certificate"
+            },
+            "owner": "Max Mustermann",
+            "birthdate": "1990-01-01",
+            "address": {
+                "street": "Musergasse",
+                "no": "13",
+                "city": "Musterhausen",
+                "zip": "13476"
+            },
+            "contact": {
+                "phone": "null",
+                "email": "mmuster@test.dom"
+            },
+            "expire_date": "2025-11-20",
+            "is_valid": true
+        }
+    ]
+}

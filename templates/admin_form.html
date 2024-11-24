@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Form - CertVerif Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <i class="material-icons">verified</i>
+                <span>CertVerif Admin</span>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="/admin/dashboard" style="text-decoration: none; color: inherit;">
+                        <i class="material-icons">dashboard</i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/certificates" style="text-decoration: none; color: inherit;">
+                        <i class="material-icons">card_membership</i>
+                        <span>Certificates</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="/admin/admins" style="text-decoration: none; color: inherit;">
+                        <i class="material-icons">group</i>
+                        <span>Admins</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/logout" style="text-decoration: none; color: inherit;">
+                        <i class="material-icons">logout</i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <main class="content">
+            <div class="content-header">
+                <h1 id="formTitle">New Admin</h1>
+            </div>
+            <div class="form-container">
+                <form id="adminForm" method="POST" action="/admin/admins/new">
+                    <input type="hidden" name="csrf_token" value="{{csrf_token}}">
+                    
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                        <span class="error-message" id="username-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password">
+                        <small class="help-text">Leave empty to keep current password</small>
+                        <span class="error-message" id="password-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select id="role" name="role" required>
+                            <option value="user">User</option>
+                            {{#if session.role === 'admin'}}
+                            <option value="admin">Admin</option>
+                            {{/if}}
+                        </select>
+                        <span class="error-message" id="role-error"></span>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="location.href='/admin/admins'">Cancel</button>
+                        <button type="submit" class="btn-primary">Save Admin</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="/static/js/admin-form.js"></script>
+    <script>
+        let adminData = {};
+        try {
+            adminData = JSON.parse('{{{ADMIN_DATA}}}');
+        } catch (e) {
+            console.error('Error parsing admin data:', e);
+        }
+        initializeAdminForm(adminData);
+    </script>
+</body>
+</html> 

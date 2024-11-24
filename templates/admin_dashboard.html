@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CertVerif Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <i class="material-icons">verified</i>
+                <span>CertVerif Admin</span>
+            </div>
+            <ul class="nav-links">
+                <li class="active">
+                    <a href="/admin/dashboard" style="text-decoration: none; color: inherit;">
+                        <i class="material-icons">dashboard</i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/certificates" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+                        <i class="material-icons">card_membership</i>
+                        <span>Certificates</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/admins" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+                        <i class="material-icons">group</i>
+                        <span>Admins</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/logout" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+                        <i class="material-icons">logout</i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <main class="content">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="material-icons">description</i>
+                    <div class="stat-info">
+                        <span class="stat-value">{{total_certs}}</span>
+                        <span class="stat-label">Total Certificates</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="material-icons" style="color: #4CAF50;">verified</i>
+                    <div class="stat-info">
+                        <span class="stat-value">{{valid_certs}}</span>
+                        <span class="stat-label">Valid Certificates</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="material-icons" style="color: #ff9800;">warning</i>
+                    <div class="stat-info">
+                        <span class="stat-value">{{expiring_soon}}</span>
+                        <span class="stat-label">Expiring in 30 Days</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="material-icons" style="color: #f44336;">gpp_bad</i>
+                    <div class="stat-info">
+                        <span class="stat-value">{{expired_certs}}</span>
+                        <span class="stat-label">Expired Certificates</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="material-icons">category</i>
+                    <div class="stat-info">
+                        <span class="stat-value">{{cert_types}}</span>
+                        <span class="stat-label">Certificate Types</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn" onclick="location.href='/admin/certificates/new'">
+                    <i class="material-icons">add</i>
+                    New Certificate
+                </button>
+                {{ADMIN_BUTTON}}
+            </div>
+        </main>
+    </div>
+</body>
+</html> 
