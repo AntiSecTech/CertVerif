@@ -16,6 +16,20 @@ A robust certificate verification system built with Python, offering both public
 - **Data Storage**: JSON-based
 - **UI Framework**: Material Design
 
+## 🛡️
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white)
+![Material Design](https://img.shields.io/badge/Material_Design-757575?style=for-the-badge&logo=material-design&logoColor=white)
+![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)
+![QR Code](https://img.shields.io/badge/QR_Code-000000?style=for-the-badge&logo=qrcode&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![VSCode](https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+
 ## ✨ Key Features
 
 ### 🌐 Public Interface
@@ -134,6 +148,21 @@ CertVerif/
 - ✅ QR code support
 - 🚧 Email notifications (Planned)
 - 🚧 Bulk operations (Planned)
+
+### 🎯 Future Improvements (RESTful API)
+
+- 🔲 Resource-based URL structure
+- 🔲 Proper HTTP methods implementation (GET, POST, PUT, DELETE)
+- 🔲 Standardized HTTP status codes
+- 🔲 HATEOAS implementation
+- 🔲 Content negotiation
+- 🔲 API versioning
+- 🔲 Enhanced authentication & authorization
+- 🔲 Rate limiting
+- 🔲 API documentation (Swagger/OpenAPI)
+- 🔲 Comprehensive error handling
+
+⚠️ Note: These improvements are planned for a future version to maintain current stability.
 
 ## 🤝 Contributing
 
