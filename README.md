@@ -9,6 +9,20 @@
 
 A robust certificate verification system built with Python, offering both public verification capabilities and administrative management of certificates.
 
+## Table of Contents
+
+- [Tech Stack](#-tech-stack)
+- [Key Features](#-key-features)
+- [Installation](#️-installation)
+- [Default Credentials](#-default-credentials)
+- [Project Structure](#-project-structure)
+- [Security Features](#-security-features)
+- [Data Structure](#-data-structure)
+- [Current Status](#-current-status)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Author](#-author)
+
 ## 🚀 Tech Stack
 
 - **Backend**: Python
